@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/renovatebot/renovate/master/renovate-schema.json",
+  "groupName": "all",
+  "extends": [
+    "config:base"
+  ]
+}

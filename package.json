@@ -1,0 +1,38 @@
+{
+  "name": "project-ecs",
+  "version": "0.0.0",
+  "description": "A multithreaded crossplatform ECS",
+  "main": "src/index.ts",
+  "author": "stackdumper <stackdumper@gmail.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/stackdumper/project-ecs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackdumper/project-ecs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stackdumper/project-ecs/issues"
+  },
+  "keywords": [
+    "javascript",
+    "ecs"
+  ],
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write './!(node_modules|dist)/**/*.{ts,tsx,js,jsx}'",
+    "check": "prettier --check './!(node_modules|dist)/**/*.{ts,tsx,js,jsx}' && tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "@types/jest": "24.9.0",
+    "@types/lodash.intersection": "^4.4.6",
+    "@types/nanoid": "2.1.0",
+    "jest": "25.1.0",
+    "prettier": "1.19.1",
+    "ts-jest": "24.3.0",
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "lodash.intersection": "^4.4.0",
+    "nanoid": "^2.1.10"
+  }
+}
