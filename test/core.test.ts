@@ -1,4 +1,4 @@
-import { Core } from '~/index'
+import { Core, Thread } from '~/index'
 import { ComponentPosition, ComponentVelocity } from './components'
 import { ResourceClock } from './resources'
 import { SystemVelocity } from './systems'
@@ -16,10 +16,10 @@ describe('Core', () => {
     expect(() => core.addComponent(ComponentVelocity)).toThrow()
 
     // check if components were added
-    expect(core.components.has(ComponentPosition)).toBe(true)
-    expect(core.components.get(ComponentPosition)!.size).toBe(0)
-    expect(core.components.has(ComponentVelocity)).toBe(true)
-    expect(core.components.get(ComponentVelocity)!.size).toBe(0)
+    expect(core.components.has(ComponentPosition.name)).toBe(true)
+    expect(core.components.get(ComponentPosition.name)!.size).toBe(0)
+    expect(core.components.has(ComponentVelocity.name)).toBe(true)
+    expect(core.components.get(ComponentVelocity.name)!.size).toBe(0)
   })
 
   it('addResource', () => {
@@ -32,7 +32,7 @@ describe('Core', () => {
     expect(() => core.addResource(resource)).toThrow()
 
     // check if resource was added
-    expect(core.resources.has(resource.constructor)).toBe(true)
+    expect(core.resources.has(resource.constructor.name)).toBe(true)
   })
 
   it('addSystem', () => {
@@ -53,14 +53,14 @@ describe('Core', () => {
     core.addEntity([new ComponentPosition(0.0, 0.0), new ComponentVelocity(0.0, 1.0)])
 
     // check if components were added to corresponding storages
-    expect(core.components.get(ComponentPosition)!.size).toBe(1)
-    expect(core.components.get(ComponentVelocity)!.size).toBe(1)
+    expect(core.components.get(ComponentPosition.name)!.size).toBe(1)
+    expect(core.components.get(ComponentVelocity.name)!.size).toBe(1)
   })
 
   it('dispatch', () => {
     core.dispatch()
 
     // @ts-ignore
-    expect(Array.from(core.components.get(ComponentPosition)!.values())[0].y).toEqual(1)
+    expect(Array.from(core.components.get(ComponentPosition.name)!.values())[0].y).toEqual(1)
   })
 })

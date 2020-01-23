@@ -19,20 +19,26 @@
   ],
   "scripts": {
     "test": "jest",
+    "start": "parcel serve -p 8080 --no-hmr demo/index.html",
+    "build": "parcel build --public-url './' demo/index.html",
     "format": "prettier --write './!(node_modules|dist)/**/*.{ts,tsx,js,jsx}'",
     "check": "prettier --check './!(node_modules|dist)/**/*.{ts,tsx,js,jsx}' && tsc --noEmit -p ."
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@types/jest": "24.9.0",
     "@types/lodash.intersection": "^4.4.6",
     "@types/nanoid": "2.1.0",
     "jest": "25.1.0",
+    "parcel-bundler": "^1.12.4",
     "prettier": "1.19.1",
     "ts-jest": "24.3.0",
     "typescript": "3.7.5"
   },
   "dependencies": {
     "lodash.intersection": "^4.4.0",
-    "nanoid": "^2.1.10"
+    "nanoid": "^2.1.10",
+    "tiny-worker": "^2.3.0"
   }
 }
